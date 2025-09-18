@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas 1 - Javascript Interaktif</title>
+  </head>
+  <body>
+    <h1>Menghitung Luas Bangun Datar</h1>
+
+    <!-- Form input -->
+    <form id="bangunForm">
+      <h3>Persegi Panjang</h3>
+      <label>Panjang: <input type="number" id="panjang" required /></label
+      ><br />
+      <label>Lebar: <input type="number" id="lebar" required /></label
+      ><br /><br />
+
+      <h3>Bujur Sangkar</h3>
+      <label>Sisi: <input type="number" id="sisi" required /></label
+      ><br /><br />
+
+      <h3>Segitiga</h3>
+      <label>Alas: <input type="number" id="alas" required /></label><br />
+      <label>Tinggi: <input type="number" id="tinggi" required /></label
+      ><br /><br />
+
+      <button type="button" onclick="hitung()">Calculate</button>
+    </form>
+
+    <h2>Hasil Perhitungan:</h2>
+    <div id="hasil"></div>
+
+    <script>
+      // Fungsi menghitung luas persegi panjang
+      function luasPersegiPanjang(panjang, lebar) {
+        return panjang * lebar;
+      }
+
+      // Fungsi menghitung luas bujur sangkar
+      function luasBujurSangkar(sisi) {
+        return sisi * sisi;
+      }
+
+      // Fungsi menghitung luas segitiga
+      function luasSegitiga(alas, tinggi) {
+        return (alas * tinggi) / 2;
+      }
+
+      // Fungsi utama untuk ambil nilai input lalu tampilkan hasil
+      function hitung() {
+        // Ambil nilai dari input form
+        let panjang = parseFloat(document.getElementById("panjang").value);
+        let lebar = parseFloat(document.getElementById("lebar").value);
+        let sisi = parseFloat(document.getElementById("sisi").value);
+        let alas = parseFloat(document.getElementById("alas").value);
+        let tinggi = parseFloat(document.getElementById("tinggi").value);
+
+        // Hitung luas masing-masing
+        let luasPP = luasPersegiPanjang(panjang, lebar);
+        let luasBS = luasBujurSangkar(sisi);
+        let luasSegi = luasSegitiga(alas, tinggi);
+
+        // Tampilkan hasil ke div
+        document.getElementById("hasil").innerHTML = `
+        <p>Luas Persegi Panjang = ${luasPP}</p>
+        <p>Luas Bujur Sangkar = ${luasBS}</p>
+        <p>Luas Segitiga = ${luasSegi}</p>
+      `;
+      }
+    </script>
+  </body>
+</html>
